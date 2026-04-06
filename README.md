@@ -1,5 +1,9 @@
 # 🚀 Flying Chess: Educational Automation Research
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Platform: Chrome](https://img.shields.io/badge/Platform-Chrome-blue.svg)
+![Engine: Stockfish](https://img.shields.io/badge/Engine-Stockfish-orange.svg)
+![Type: Educational](https://img.shields.io/badge/Type-Educational-green.svg)
+![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-lightgrey.svg)
 
 **Flying Chess** is an educational research project exploring the interaction between browser extensions and dynamic web applications through DOM manipulation and artificial intelligence (AI) integration. The project is specifically designed to explore how automation logic can be implemented safely and efficiently in modern browser environments.
 
