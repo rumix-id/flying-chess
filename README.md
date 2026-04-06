@@ -5,16 +5,15 @@
 
 ## 📖 How to Use
 The Flying Chess menu will appear automatically when you open a supported chess game page.
-
 **Parameter Configuration**
 * Depth of Thinking: Sets the sharpness of Stockfish AI analysis.
 * Random Comments: A comma-separated list of text to simulate social chat interactions.
 * Running Delay: Sets the time delay (ms) between moves to simulate the rhythm of human thinking.
 **Running the Simulation**
-Click the Start Flight button to activate the script. Configuration input will be automatically locked for data stability.
-The AI ​​will scan the board and provide visual recommendations in the form of red squares.
+* Click the Start Flight button to activate the script. Configuration input will be automatically locked for data stability.
+* The AI ​​will scan the board and provide visual recommendations in the form of red squares.
 **Stopping the Process**
-Click Stop Flight to shut down the Stockfish Web Worker and clear all manipulated elements from the page.
+* Click Stop Flight to shut down the Stockfish Web Worker and clear all manipulated elements from the page.
 ## 🌐 Supported Browsers
 ✅ Google Chrome  (Recommended for Manifest V3 API stability).
 ## 🛠️ Installation Guide
