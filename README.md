@@ -15,9 +15,9 @@ Click the Start Flight button to activate the script. Configuration input will b
 The AI ​​will scan the board and provide visual recommendations in the form of red squares.
 **Stopping the Process**
 Click Stop Flight to shut down the Stockfish Web Worker and clear all manipulated elements from the page.
-## 🌐 Browser yang Didukung
+## 🌐 Supported Browsers
 ✅ Google Chrome  (Recommended for Manifest V3 API stability).
-## Panduan Pemasangan (Instalasi)
+## 🛠️ Installation Guide
 Installation is done via Developer Mode for experimental purposes:
 ```
 📂 Download Repository: Download the zip file and extract it.
@@ -26,7 +26,6 @@ Installation is done via Developer Mode for experimental purposes:
 📦 Load Extension: Click the Load unpacked button and select your project folder.
 ✨ Done: The "Flying Chess" extension is ready to use and ready to learn!
 ```
-## ⚠️ Important Note (Disclaimer)
-This repository is published solely for the purposes of learning and technical research on cybersecurity and web automation. The developers do not support or encourage the misuse of this tool for cheating in official competitions. Understanding how this system works is expected to help web developers build more robust bot defense and detection systems in the future.
+## ⚠️ Important Note (Disclaimer): This repository is published solely for the purposes of learning and technical research on cybersecurity and web automation. The developers do not support or encourage the misuse of this tool for cheating in official competitions. Understanding how this system works is expected to help web developers build more robust bot defense and detection systems in the future.
 ## 💎 Kredit Sumber
 This project uses the [Stockfish](https://stockfishchess.org/) Chess Engine (via stockfish.js) as the core of chess position data calculations. We greatly appreciate the outstanding contributions of the Stockfish open-source community in advancing global chess analysis technology.
