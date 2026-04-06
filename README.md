@@ -9,12 +9,9 @@
 </p>
 
 **Flying Chess** is an educational research project exploring the interaction between browser extensions and dynamic web applications through DOM manipulation and artificial intelligence (AI) integration. The project is specifically designed to explore how automation logic can be implemented safely and efficiently in modern browser environments.
-
-![Flying Chess Demo](screenshots/programs.gif)
-
 ## 📖 How to Use
 The Flying Chess menu will appear automatically when you open a supported chess[.]com game page.
-
+![Flying Chess Demo](screenshots/programs.gif)
 ## **Parameter Configuration**
 - Select the mode to use : 1. Auto Suggestion or 2. Auto Pilot + Auto Comment
 - Thought Depth: Sets the depth of Stockfish's AI analysis.
