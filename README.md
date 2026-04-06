@@ -8,6 +8,8 @@
   <img src="screenshots/logo.png" hight="650" width="350" alt="Flying Chess Logo">
 </p>
 
+![Flying Chess Demo](screenshots/programs.gif)
+
 **Flying Chess** is an educational research project exploring the interaction between browser extensions and dynamic web applications through DOM manipulation and artificial intelligence (AI) integration. The project is specifically designed to explore how automation logic can be implemented safely and efficiently in modern browser environments.
 
 ## 📖 How to Use
