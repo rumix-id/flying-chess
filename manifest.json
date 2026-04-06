@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Flying Chess",
+  "version": "1.0",
+  "icons": { "72": "icon.png",
+  "94": "icon.png",
+  "128": "icon.png" },
+  "description": "Auto Suggestion, Auto Pilot, and Auto Comment for Ch**s.comp",
+  "permissions": [
+    "storage"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://*.chess.com/game/*", "*://*.chess.com/play/*"],
+      "js": ["content.js"],
+      "css": []
+    }
+  ],
+  "action": {
+    "default_title": "Flying Chess Aktif"
+  }
+}
