@@ -5,6 +5,7 @@
 
 ## 📖 How to Use
 The Flying Chess menu will appear automatically when you open a supported chess game page.
+
 **Parameter Configuration**
 ```
 - Select the mode to use
