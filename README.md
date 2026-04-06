@@ -5,7 +5,7 @@
 ![Type: Educational](https://img.shields.io/badge/Type-Educational-green.svg)
 ![Version: 1.0.0](https://img.shields.io/badge/Version-1.0.0-lightgrey.svg)
 <p align="center">
-  <img src="screenshot/logo.png" width="150" alt="Flying Chess Logo">
+  <img src="screenshots/logo.png" width="150" alt="Flying Chess Logo">
 </p>
 **Flying Chess** is an educational research project exploring the interaction between browser extensions and dynamic web applications through DOM manipulation and artificial intelligence (AI) integration. The project is specifically designed to explore how automation logic can be implemented safely and efficiently in modern browser environments.
 
