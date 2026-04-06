@@ -1,5 +1,3 @@
-// content.js
-
 let engineWorker = null;
 let boardMonitorInterval = null;
 let currentDepth = 15; 
@@ -7,8 +5,6 @@ let isMovingPiece = false;
 let lastExecutedMove = ""; 
 let latestBestMove = null; 
 let availableComments = []; 
-
-// === BAGIAN 1: LOGIKA CHESS ENGINE & AUTO PILOT ===
 
 function getFenString(chessboard) {
     let fen_string = "";
@@ -42,10 +38,52 @@ function getFenString(chessboard) {
             }
         }
     }
-    
-    // PERBAIKAN FEN MINIMALIS: Kita menambahkan ' - - 0 1' di belakang 
-    // agar format FEN lebih sah di mata protokol UCI, meski tanpa hak rokade yang sempurna.
     return fen_string; 
+}
+
+function getCastlingRights() {
+    let castling = "";
+    if (document.querySelector('.piece.wk.square-51')) {
+        if (document.querySelector('.piece.wr.square-81')) castling += "K";
+        if (document.querySelector('.piece.wr.square-11')) castling += "Q";
+    }
+    if (document.querySelector('.piece.bk.square-58')) {
+        if (document.querySelector('.piece.br.square-88')) castling += "k";
+        if (document.querySelector('.piece.br.square-18')) castling += "q";
+    }
+    return castling === "" ? "-" : castling;
+}
+
+function isItMyTurn(player_colour) {
+    let highlights = document.querySelectorAll('.highlight:not(.cheat-highlight)');
+    if (highlights.length === 0) {
+        return player_colour === 'w';
+    }
+
+    let lastMoveByPlayer = false;
+    let lastMoveByOpponent = false;
+
+    highlights.forEach(hl => {
+        let sqClass = Array.from(hl.classList).find(c => c.startsWith('square-'));
+        if (sqClass) {
+            let piece = document.querySelector(`.piece.${sqClass}`);
+            if (piece) {
+                let pieceClass = Array.from(piece.classList).find(c => c.length === 2 && (c.startsWith('w') || c.startsWith('b')));
+                if (pieceClass) {
+                    if (pieceClass[0] === player_colour) {
+                        lastMoveByPlayer = true;
+                    } else {
+                        lastMoveByOpponent = true;
+                    }
+                }
+            }
+        }
+    });
+
+    if (lastMoveByOpponent) return true;
+    if (lastMoveByPlayer) return false; 
+
+    return true; 
 }
 
 async function simulateClickMove(startPos, endPos, isFlipped) {
@@ -184,9 +222,7 @@ function startFlyingChess(mode, depthValue, commentsText, delayText) {
 
     let isFlipped = chessboard.classList.contains("flipped");
     let player_colour = isFlipped ? "b" : "w";
-    
-    // PERBAIKAN FEN PROTOKOL UCI
-    let current_fen = getFenString(chessboard) + ` ${player_colour} - - 0 1`;
+    let current_fen = ""; 
     
     if (commentsText && commentsText.trim() !== "") {
         availableComments = commentsText.split(',').map(c => c.trim()).filter(c => c.length > 0);
@@ -200,24 +236,24 @@ function startFlyingChess(mode, depthValue, commentsText, delayText) {
 
     try {
         engineWorker = new Worker("/bundles/app/js/vendor/jschessengine/stockfish.asm.1abfa10c.js");
+        engineWorker.postMessage('uci');
+        engineWorker.postMessage('setoption name Skill Level value 20');
+        engineWorker.postMessage('ucinewgame');
     } catch (e) {
         alert("Gagal memuat Stockfish worker.");
         return false;
     }
 
-    // PERBAIKAN: Hanya mengirim 1 perintah 'go depth' agar bot bisa berpikir tenang
-    engineWorker.postMessage(`position fen ${current_fen}`);
-    engineWorker.postMessage(`go depth ${currentDepth}`);
-
     boardMonitorInterval = setInterval(async () => {
-        let new_fen = getFenString(chessboard) + ` ${player_colour} - - 0 1`;
+        let isMyTurn = isItMyTurn(player_colour);
+        if (!isMyTurn) return;
+        let new_fen = getFenString(chessboard) + ` ${player_colour} ${getCastlingRights()} - 0 1`;
         
         if (new_fen !== current_fen) {
             current_fen = new_fen;
             lastExecutedMove = ""; 
             latestBestMove = null; 
             
-            // PERBAIKAN: Sama seperti di atas
             engineWorker.postMessage(`position fen ${current_fen}`);
             engineWorker.postMessage(`go depth ${currentDepth}`);
         }
@@ -400,7 +436,7 @@ function setupMenuLogic(shadow) {
             depthInput.disabled = false; 
             commentInput.disabled = false;
             delayInput.disabled = (modeSelect.value === 'suggestion'); 
-            actionBtn.textContent = "Simpan & Jalankan";
+            actionBtn.textContent = "Start Flight";
             actionBtn.classList.remove('btn-danger');
         }
     });
