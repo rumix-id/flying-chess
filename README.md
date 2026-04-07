@@ -14,7 +14,7 @@ The Flying Chess menu will appear automatically when you open a supported chess[
 ![Flying Chess Demo](screenshots/programs.gif)
 ## **Parameter Configuration**
 - Select the mode to use : 1. Auto Suggestion or 2. Auto Pilot + Auto Comment
-- Thought Depth: Sets the depth of Stockfish's AI analysis.
+- Thought Depth: Sets the depth of Stockfish's AI analysis. ```min=1 max=30```
 - Random Comments: A comma-separated list of text to simulate social chat interactions.
 - Execution Delay: Sets the time delay (ms) between steps to simulate the rhythm of human thought.
 ## **Running the Simulation**
