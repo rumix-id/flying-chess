@@ -383,11 +383,11 @@ function createFloatingMenu() {
             </div>
             <div class="form-group">
                 <label>Random Comments (leave blank is fine):</label>
-                <input type="text" id="comment-input" value="you are great, good move, interesting" />
+                <input type="text" id="comment-input" value="" />
             </div>
             <div class="form-group">
                 <label>Turn time (example: 1000 = 1 second):</label>
-                <input type="text" id="delay-input" value="2000,3000,8000,5000,12000" disabled />
+                <input type="text" id="delay-input" value="4000,3000,8000,5000,12000" disabled />
             </div>
             <button id="action-btn">Start Flight</button>
         </div>
